@@ -1,2 +1,1 @@
-# PoseUebung-009
-Dice Simulation
+# PoseUebung-009 -- Dice Simulation
