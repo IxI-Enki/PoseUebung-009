@@ -2,12 +2,12 @@
 
 public class NumberObserver(int watchNumber)
 {
-  protected int observedNumber = watchNumber;
-
   #region FIELDS
   private readonly int _watchNumber = watchNumber;
-  private int _watchCount;
-  private int _count;
+
+  private int
+    _watchCount,
+    _count;
   #endregion
 
   #region PROPERTIES
@@ -32,10 +32,10 @@ public class NumberObserver(int watchNumber)
   {
     _count++;
     if (number == _watchNumber)
+    {
       _watchCount++;
-
-    if (number == observedNumber)
-      Console.WriteLine($"Observer for {observedNumber} notified!");
+      Console.WriteLine($"Observer for {_watchNumber} notified!");
+    }
   }
   #endregion
 
