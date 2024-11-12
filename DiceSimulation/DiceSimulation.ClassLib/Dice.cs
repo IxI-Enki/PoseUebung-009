@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-
+﻿using System.Text;
 namespace DiceSimulation.ClassLib;
 
 public delegate void DiceRolledEventHandler(int rolledNumber);
