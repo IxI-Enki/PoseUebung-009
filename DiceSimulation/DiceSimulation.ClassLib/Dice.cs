@@ -47,7 +47,7 @@ public class Dice
 
 
   // Private Helper-Methods
-  public string GetStatistics()
+  private string GetStatistics()
   {
     int totalRolls = 0;
     var rollCounts = new Dictionary<int , int>();
