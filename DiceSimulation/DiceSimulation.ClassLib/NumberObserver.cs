@@ -11,7 +11,7 @@ public class NumberObserver(int watchNumber)
   #endregion
 
   #region PROPERTIES
-    /// <summary>
+  /// <summary>
   ///  Ruft die Anzahl von Wuerfen ab.
   /// </summary>
   public int Count { get => _count; }
@@ -40,7 +40,6 @@ public class NumberObserver(int watchNumber)
   #endregion
 
   #region OVERRIDES
-  public override string ToString()
-    => $"Zahl {_watchNumber}: {_watchCount}";   // add statistic here 
+  public override string ToString() => $"Zahl {_watchNumber}: {_watchCount}";
   #endregion
 }
