@@ -1,31 +1,37 @@
-﻿using DiceSimulation.ClassLib;
-using System.Text;
-
+﻿using System.Text;
+using DiceSimulation.ClassLib;
 namespace DiceSimulation.ConApp;
 
 internal class Program
 {
+  /// <summary>
+  ///  Program Entry-Point
+  /// </summary>
   static void Main()
   {
     PrintHeader();
     int numberOfDiceRolls = PromptUser();
 
     Dice dice = new();
-    NumberObserver[ ] numberObservers = new NumberObserver[ 6 ];
-
+    List<NumberObserver> numberObservers = [ ];
     for (int i = 0 ; i < 6 ; i++)
     {
-      numberObservers[ i ] = new(i + 1);
-      dice.DiceRolled += numberObservers[ i ].Update;
+      numberObservers.Add(new NumberObserver(i + 1));
+      dice.DiceRolled += numberObservers[ i ].Notify;
     }
+    dice.NumberObservers = numberObservers;
 
     while (numberOfDiceRolls > 0)
     {
       dice.Roll();
       numberOfDiceRolls--;
     }
+
+    Console.Write($"\n{dice}");
+    Console.ReadLine();
   }
 
+  // Program-Initialisation Methods
   private static int PromptUser()
   {
     Console.Write("Anzahl der Würfe: ");
@@ -33,7 +39,6 @@ internal class Program
     return int.TryParse(Console.ReadLine() , out int numberOfDiceRolls) ? numberOfDiceRolls
       : numberOfDiceRolls > 0 ? numberOfDiceRolls : 0;
   }
-
   private static void PrintHeader()
   {
     StringBuilder sb = new();

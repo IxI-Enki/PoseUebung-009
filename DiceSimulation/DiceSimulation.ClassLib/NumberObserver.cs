@@ -1,17 +1,9 @@
 ﻿namespace DiceSimulation.ClassLib;
 
-public class NumberObserver(int observedNumber)
+public class NumberObserver(int watchNumber)
 {
-  protected int observedNumber = observedNumber;
+  protected int observedNumber = watchNumber;
 
-  public virtual void Update(int value)
-  {
-    if (value == observedNumber)
-      Console.WriteLine($"Observer for {observedNumber} notified!");
-  }
-
-
-  /*
   #region FIELDS
   private readonly int _watchNumber = watchNumber;
   private int _watchCount;
@@ -19,13 +11,20 @@ public class NumberObserver(int observedNumber)
   #endregion
 
   #region PROPERTIES
+    /// <summary>
+  ///  Ruft die Anzahl von Wuerfen ab.
+  /// </summary>
   public int Count { get => _count; }
-  public int WatchCount { get => _watchCount; }
-  public int WatchNumber { get => _watchNumber; }
-  #endregion
 
-  #region CONSTRUCTOR
-  // Used primary constructor
+  /// <summary>
+  ///  Ruft die Anzahl der beobachteten Zahl ab.
+  /// </summary>
+  public int WatchCount { get => _watchCount; }
+
+  /// <summary>
+  ///  Ruft die Zahl ab, welche beobachtet wird.
+  /// </summary>
+  public int WatchNumber { get => _watchNumber; }
   #endregion
 
   #region METHODS
@@ -34,6 +33,9 @@ public class NumberObserver(int observedNumber)
     _count++;
     if (number == _watchNumber)
       _watchCount++;
+
+    if (number == observedNumber)
+      Console.WriteLine($"Observer for {observedNumber} notified!");
   }
   #endregion
 
@@ -41,5 +43,4 @@ public class NumberObserver(int observedNumber)
   public override string ToString()
     => $"Zahl {_watchNumber}: {_watchCount}";   // add statistic here 
   #endregion
-  */
 }
